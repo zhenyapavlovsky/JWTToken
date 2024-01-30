@@ -18,7 +18,7 @@ struct ProfileView: View {
             } else {
                 Form {
                     topSection
-         //           middleSection
+                    middleSection
                     bottomSection
                 }
             }
@@ -38,18 +38,18 @@ private extension ProfileView {
                     .frame(width: 80, height: 80)
                 Spacer()
             }
-//            Text("\(viewModel.person.firstName) \(viewModel.person.lastName)")
-//                .font(.title2)
+            Text("\(viewModel.person.firstName) \(viewModel.person.lastName)")
+                .font(.title2)
         }
     }
     
-//    var middleSection: some View {
-//        Section {
-//            detailRow(label: "age".localized, value: "\(viewModel.person.age)")
-//            detailRow(label: "gender".localized, value: viewModel.person.gender)
-//            detailRow(label: "country".localized, value: viewModel.person.country)
-//        }
-//    }
+    var middleSection: some View {
+        Section {
+            detailRow(label: "age".localized, value: "\(viewModel.person.age)")
+            detailRow(label: "gender".localized, value: viewModel.person.gender)
+            detailRow(label: "country".localized, value: viewModel.person.country)
+        }
+    }
     
     var bottomSection: some View {
         Section {

@@ -16,7 +16,7 @@ struct UserList: Codable {
 }
 
 
-struct UserDetails: Codable, Identifiable, Equatable  {
+struct UserDetails: Codable, Identifiable, Equatable, Hashable  {
     
     let id: String
     let firstName: String
@@ -27,7 +27,7 @@ struct UserDetails: Codable, Identifiable, Equatable  {
 }
 
 
-struct UserdDetailsResponse: Codable {
+struct UserDetailsResponse: Codable {
     
     let status: String
     let data: UserDetails

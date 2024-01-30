@@ -26,16 +26,16 @@ struct HomeView: View {
 private extension HomeView {
     
     var personsList: some View {
-        List(viewModel.firstNames, id: \.self) { firstName in
+        List(viewModel.userDetails, id: \.self) { per in
             Button(action: {
-                // Обробка вибору користувача
+                viewModel.selectProfileItem(person: per)
             }) {
                 HStack {
                     Image(systemName: "person.circle.fill")
                         .resizable()
                         .frame(width: 40, height: 40)
                         .padding(.trailing, 5)
-                    Text(firstName)
+                    Text(per.firstName)
                         .font(.system(size: 16, weight: .semibold))
                 }
             }

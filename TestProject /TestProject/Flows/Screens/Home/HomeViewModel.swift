@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 import Combine
+import Network
 
 class HomeViewModel: ObservableObject {
     
     @Published var firstNames = [String]()
     @Published var persons = [UserDetails]()
     @Published var errorMessage: String?
-    //  @Published var output = String()
     @Published var loadingState = false
     @Published var userDetails = [UserDetails]()
     
@@ -44,21 +44,19 @@ class HomeViewModelImpl: HomeViewModel {
     
     override func getPersons() {
         self.loadingState = true
-        personService
-            .getPersons()
-            .sink { [weak self] completion in
+        personService.getPersons()
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    print("Error loading persons: \(error)")
                     self?.errorMessage = error.localizedDescription
                     self?.loadingState = false
                 case .finished:
-                    print("Finished loading persons")
+                    break
                 }
-            } receiveValue: { [weak self] userList in
-                print("Received person IDs: \(userList.data)")
-                self?.loadPersonDetails(ids: userList.data)
-            }
+            }, receiveValue: { [weak self] userList in
+                self?.loadPersonDetails(ids: userList.data) // Використання масиву 'data' з 'UserList'
+                self?.loadingState = false
+            })
             .store(in: &cancellables)
     }
     
@@ -67,12 +65,10 @@ class HomeViewModelImpl: HomeViewModel {
         self.firstNames = []
 
         let detailsPublisher = ids.publisher
-            .flatMap { id in
+            .flatMap { [unowned self] id in
                 self.personService.getPersonDetails(id: id)
-                    .catch { error -> Empty<UserDetails, Never> in
-                        print("Error fetching details for ID \(id): \(error)")
-                        return Empty()
-                    }
+                    .map { $0.data } // Використання поля 'data' з 'UserDetailsResponse'
+                    .catch { _ in Empty<UserDetails, Never>() }
             }
             .collect()
             .receive(on: DispatchQueue.main)
@@ -80,8 +76,8 @@ class HomeViewModelImpl: HomeViewModel {
         detailsPublisher.sink(receiveCompletion: { [weak self] _ in
             self?.loadingState = false
         }, receiveValue: { [weak self] userDetails in
-            print("Received user details: \(userDetails)")
-            self?.firstNames = userDetails.map { $0.firstName }.filter { $0 != "Unknown" }
+            self?.firstNames = userDetails.compactMap { $0.firstName }
+            self?.userDetails = userDetails
         })
         .store(in: &cancellables)
     }

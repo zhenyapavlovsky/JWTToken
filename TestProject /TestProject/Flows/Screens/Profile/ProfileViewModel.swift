@@ -32,22 +32,4 @@ class ProfileViewModel: ObservableObject {
     }
 }
 
-//class ProfileViewModelImpl: ProfileViewModel {
-//    
-//    private var cancellables = Set<AnyCancellable>()
-//    
-////    func getPersonDetails() {
-////           self.loadingState = true
-////        personService
-////            .getPersonDetails(id: person.id)
-////            .sink { [weak self] completion in
-////                guard case .failure(let error) = completion else { return }
-////                self?.output = error.localizedDescription
-////                self?.loadingState = false
-////            } receiveValue: { [weak self] personDetail in
-////                self?.person = personDetail
-////            }
-////            .store(in: &cancellables)
-////    }
-//}
 

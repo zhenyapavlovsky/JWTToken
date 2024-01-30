@@ -12,7 +12,7 @@ import CryptoKit
 protocol PersonService {
     
     func getPersons() -> AnyPublisher<UserList, Error>
-    func getPersonDetails(id: String) -> AnyPublisher<UserDetails, Error>
+    func getPersonDetails(id: String) -> AnyPublisher<UserDetailsResponse, Error>
 }
 
 final class PersonServiceImpl: PersonService {
@@ -28,7 +28,7 @@ final class PersonServiceImpl: PersonService {
         executor.performRequest(path: "/list", method: .get)
     }
     
-    func getPersonDetails(id: String) -> AnyPublisher<UserDetails, Error> {
+    func getPersonDetails(id: String) -> AnyPublisher<UserDetailsResponse, Error> {
         executor.performRequest(path: "/get/\(id)", method: .get)
     }
 }
