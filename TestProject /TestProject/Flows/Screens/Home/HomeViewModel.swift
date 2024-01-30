@@ -6,17 +6,13 @@
 //
 
 import Foundation
-import SwiftUI
 import Combine
-import Network
 
 class HomeViewModel: ObservableObject {
     
-    @Published var firstNames = [String]()
-    @Published var persons = [UserDetails]()
+    @Published var userDetails = [UserDetails]()
     @Published var errorMessage: String?
     @Published var loadingState = false
-    @Published var userDetails = [UserDetails]()
     
     enum Result {
         case onProfileSelected(person: UserDetails)
@@ -62,8 +58,6 @@ class HomeViewModelImpl: HomeViewModel {
     
     private func loadPersonDetails(ids: [String]) {
         self.loadingState = true
-        self.firstNames = []
-
         let detailsPublisher = ids.publisher
             .flatMap { [unowned self] id in
                 self.personService.getPersonDetails(id: id)
@@ -72,11 +66,10 @@ class HomeViewModelImpl: HomeViewModel {
             }
             .collect()
             .receive(on: DispatchQueue.main)
-
+        
         detailsPublisher.sink(receiveCompletion: { [weak self] _ in
             self?.loadingState = false
         }, receiveValue: { [weak self] userDetails in
-            self?.firstNames = userDetails.compactMap { $0.firstName }
             self?.userDetails = userDetails
         })
         .store(in: &cancellables)

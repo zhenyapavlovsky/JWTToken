@@ -11,7 +11,7 @@ import CryptoKit
 
 protocol PersonService {
     
-    func getPersons() -> AnyPublisher<UserList, Error>
+    func getPersons() -> AnyPublisher<UserListResponse, Error>
     func getPersonDetails(id: String) -> AnyPublisher<UserDetailsResponse, Error>
 }
 
@@ -24,8 +24,8 @@ final class PersonServiceImpl: PersonService {
         self.executor = executor
     }
     
-    func getPersons() -> AnyPublisher<UserList, Error> {
-        executor.performRequest(path: "/list", method: .get)
+    func getPersons() -> AnyPublisher<UserListResponse, Error> {
+        executor.performRequest(path: "/lists", method: .get)
     }
     
     func getPersonDetails(id: String) -> AnyPublisher<UserDetailsResponse, Error> {

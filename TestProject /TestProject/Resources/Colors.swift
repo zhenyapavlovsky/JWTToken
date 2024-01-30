@@ -16,5 +16,9 @@ extension Color {
     static var monochromm: Color {
         Color("Monochrom")
     }
+    
+    static var errorButton: Color {
+        Color("ErrorButtonBackground")
+    }
 }
 

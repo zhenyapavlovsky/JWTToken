@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct ErrorView: View {
+    
     var body: some View {
-        ZStack {
-            Color.backgroundErrorColor
-                .ignoresSafeArea()
-            VStack {
-                detailError
-            }
+        VStack {
+            detailError
         }
     }
 }
@@ -26,12 +23,12 @@ private extension ErrorView {
             Text("error".localized)
                 .font(.system(size: 18, weight: .bold))
                 .bold()
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.black)
                 .multilineTextAlignment(.center)
             Text("tapButton".localized)
                 .font(.system(size: 18, weight: .bold))
                 .bold()
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.black)
                 .multilineTextAlignment(.center)
         }
         .frame(width: 300, alignment: .center)

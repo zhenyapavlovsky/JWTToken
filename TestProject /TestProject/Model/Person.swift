@@ -8,13 +8,11 @@
 
 import Foundation
 
-struct UserList: Codable {
+struct UserListResponse: Codable {
     
     let data: [String]
     let status: String
-    
 }
-
 
 struct UserDetails: Codable, Identifiable, Equatable, Hashable  {
     
@@ -25,7 +23,6 @@ struct UserDetails: Codable, Identifiable, Equatable, Hashable  {
     let gender: String
     let country: String
 }
-
 
 struct UserDetailsResponse: Codable {
     

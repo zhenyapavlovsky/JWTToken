@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUINavigation
 
 class ProfileCoordinator: ObservableObject {
     

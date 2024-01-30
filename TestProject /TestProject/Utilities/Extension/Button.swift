@@ -21,7 +21,7 @@ extension View {
                     .padding()
             }
             .frame(width: 330, height: 70)
-            .background(Color.monochromm)
+            .background(Color.errorButton)
             .cornerRadius(15)
         }
     }
