@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  TestProject
+
+  Created by Roman Sorochak on 25.01.2024.
+  
+*/
+
+// Mark: HomeView
+
+"contact_list" = "Contact List";
+
+
+// Mark: ProfileView
+
+"age" = "Age";
+"gender" = "Gender";
+"country" = "Country";
+"send_a_message" = "Send a message";
+"call" = "Call";
+
+// Mark: ErrorView
+
+"error" = "Seems like error occurred on our side.";
+"tapButton" = "Tap button below to try again";
