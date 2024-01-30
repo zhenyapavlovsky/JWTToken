@@ -24,13 +24,12 @@ class NetworkRequestExecutor {
     private func getToken() {
         
         let header = Header(alg: "HS256", typ: "JWT")
-        let payload = Payload(uid: "337bf6c4-af4c-4842-bcc9-97594d925e97", identity: "test")
+        let payload = Payload(uid: "8008800880088008", identity: "test")
         
         let headerJSONEncoded = try? JSONEncoder().encode(header).urlSafeBase64EncodedString()
         let payloadJSONEncoded = try? JSONEncoder().encode(payload).urlSafeBase64EncodedString()
         
         guard let headerEncoded = headerJSONEncoded, let payloadEncoded = payloadJSONEncoded else {
-            // Дописати розкирену логіку роботи з помилками
             fatalError("JSON encoding failed")
         }
         
@@ -39,7 +38,6 @@ class NetworkRequestExecutor {
         let signatureBase64String = Data(signature).urlSafeBase64EncodedString()
         
         self.token = "\(message).\(signatureBase64String)"
-        print(self.token)
     }
     
     private func createRequest(for url: URL, method: HTTPMethod) -> URLRequest {

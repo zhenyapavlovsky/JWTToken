@@ -25,7 +25,7 @@ final class PersonServiceImpl: PersonService {
     }
     
     func getPersons() -> AnyPublisher<UserListResponse, Error> {
-        executor.performRequest(path: "/lists", method: .get)
+        executor.performRequest(path: "/list", method: .get)
     }
     
     func getPersonDetails(id: String) -> AnyPublisher<UserDetailsResponse, Error> {

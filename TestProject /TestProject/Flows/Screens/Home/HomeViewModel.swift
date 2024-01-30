@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published var userDetails = [UserDetails]()
     @Published var errorMessage: String?
     @Published var loadingState = false
+    @Published var errorState: ErrorState?
     
     enum Result {
         case onProfileSelected(person: UserDetails)
@@ -38,13 +39,28 @@ class HomeViewModelImpl: HomeViewModel {
         getPersons()
     }
     
+    private func handleError(_ error: Error) {
+        let errorMessage: String
+        if let serverError = error as? ServerError {
+            errorMessage = serverError.code != 200 ? serverError.message : "Something went wrong"
+        } else {
+            errorMessage = error.localizedDescription
+        }
+        self.errorState = ErrorState(
+            errorMessage: errorMessage,
+            retryAction: {
+                self.getPersons()
+            }
+        )
+    }
+    
     override func getPersons() {
         self.loadingState = true
         personService.getPersons()
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
+                    self?.handleError(error)
                     self?.loadingState = false
                 case .finished:
                     break

@@ -15,6 +15,8 @@ struct HomeView: View {
         NavigationView {
             if viewModel.loadingState {
                 HomeLoadingState()
+            } else if let errorState = viewModel.errorState {
+                ErrorView(errorState: errorState)
             } else {
                 personsList
             }

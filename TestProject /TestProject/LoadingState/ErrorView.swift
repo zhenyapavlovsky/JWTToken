@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ErrorView: View {
     
+    let errorState: ErrorState
+    
     var body: some View {
         VStack {
             detailError
@@ -20,12 +22,7 @@ private extension ErrorView {
     
     var textError: some View {
         VStack {
-            Text("error".localized)
-                .font(.system(size: 18, weight: .bold))
-                .bold()
-                .foregroundColor(Color.black)
-                .multilineTextAlignment(.center)
-            Text("tapButton".localized)
+            Text(errorState.errorMessage)
                 .font(.system(size: 18, weight: .bold))
                 .bold()
                 .foregroundColor(Color.black)
@@ -45,13 +42,19 @@ private extension ErrorView {
             errorImage
             textError
             Spacer()
-                .createRertryErrorButton(text: "Try again", action: {})
+                .createRertryErrorButton(text: "Try again", action: errorState.retryAction)
         }
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView()
+        ErrorView(
+            errorState: ErrorState(
+                buttonMessage: "Try again",
+                errorMessage: "Something went wrong",
+                retryAction: {}
+            )
+        )
     }
 }
