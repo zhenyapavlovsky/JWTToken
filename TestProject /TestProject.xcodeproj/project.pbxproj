@@ -26,9 +26,8 @@
 		ED5474922B628F430077C9A3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED5474912B628F430077C9A3 /* Localizable.strings */; };
 		ED5474942B628FF10077C9A3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474932B628FF00077C9A3 /* String.swift */; };
 		ED54749A2B629B8B0077C9A3 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474992B629B8B0077C9A3 /* HTTPMethod.swift */; };
-		ED54749E2B629CCF0077C9A3 /* DomainModelConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54749D2B629CCF0077C9A3 /* DomainModelConvertible.swift */; };
 		ED5474A02B62CF5C0077C9A3 /* NetworkRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54749F2B62CF5C0077C9A3 /* NetworkRequestExecutor.swift */; };
-		ED5474A32B62CF920077C9A3 /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474A22B62CF920077C9A3 /* RuntimeError.swift */; };
+		ED5474A32B62CF920077C9A3 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474A22B62CF920077C9A3 /* ServerError.swift */; };
 		ED5474A52B62CFE50077C9A3 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474A42B62CFE50077C9A3 /* PersonService.swift */; };
 		ED5474A92B6305400077C9A3 /* ProfileLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474A82B6305400077C9A3 /* ProfileLoadingState.swift */; };
 		ED5474AB2B6305510077C9A3 /* HomeLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474AA2B6305510077C9A3 /* HomeLoadingState.swift */; };
@@ -41,7 +40,6 @@
 		ED5474C72B65049A0077C9A3 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474C62B65049A0077C9A3 /* Header.swift */; };
 		ED5474C92B6504BB0077C9A3 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474C82B6504BB0077C9A3 /* Payload.swift */; };
 		ED5474CD2B66FFB70077C9A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474CC2B66FFB70077C9A3 /* Person.swift */; };
-		EDDB11F82B6970C000FE9F0F /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11F72B6970C000FE9F0F /* ServerError.swift */; };
 		EDDB11FA2B69712200FE9F0F /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11F92B69712200FE9F0F /* ErrorState.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,9 +82,8 @@
 		ED5474912B628F430077C9A3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		ED5474932B628FF00077C9A3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		ED5474992B629B8B0077C9A3 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		ED54749D2B629CCF0077C9A3 /* DomainModelConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModelConvertible.swift; sourceTree = "<group>"; };
 		ED54749F2B62CF5C0077C9A3 /* NetworkRequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor.swift; sourceTree = "<group>"; };
-		ED5474A22B62CF920077C9A3 /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
+		ED5474A22B62CF920077C9A3 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		ED5474A42B62CFE50077C9A3 /* PersonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
 		ED5474A82B6305400077C9A3 /* ProfileLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoadingState.swift; sourceTree = "<group>"; };
 		ED5474AA2B6305510077C9A3 /* HomeLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoadingState.swift; sourceTree = "<group>"; };
@@ -99,7 +96,6 @@
 		ED5474C62B65049A0077C9A3 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		ED5474C82B6504BB0077C9A3 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		ED5474CC2B66FFB70077C9A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		EDDB11F72B6970C000FE9F0F /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		EDDB11F92B69712200FE9F0F /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,7 +279,6 @@
 		ED5474842B61CADA0077C9A3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				ED54749D2B629CCF0077C9A3 /* DomainModelConvertible.swift */,
 				ED5474852B61CB0D0077C9A3 /* NavigationLink.swift */,
 				ED5474932B628FF00077C9A3 /* String.swift */,
 				ED5474B32B6309760077C9A3 /* Button.swift */,
@@ -314,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				ED5474962B629B410077C9A3 /* HTTP */,
-				ED5474A12B62CF820077C9A3 /* RuntimeError */,
+				ED5474A12B62CF820077C9A3 /* ServerError */,
 				ED5474982B629B660077C9A3 /* RequestExecutor */,
 				ED5474A42B62CFE50077C9A3 /* PersonService.swift */,
 			);
@@ -338,12 +333,12 @@
 			path = RequestExecutor;
 			sourceTree = "<group>";
 		};
-		ED5474A12B62CF820077C9A3 /* RuntimeError */ = {
+		ED5474A12B62CF820077C9A3 /* ServerError */ = {
 			isa = PBXGroup;
 			children = (
-				ED5474A22B62CF920077C9A3 /* RuntimeError.swift */,
+				ED5474A22B62CF920077C9A3 /* ServerError.swift */,
 			);
-			path = RuntimeError;
+			path = ServerError;
 			sourceTree = "<group>";
 		};
 		ED5474AC2B6305B30077C9A3 /* LoadingState */ = {
@@ -367,7 +362,6 @@
 		EDDB11F62B6970AB00FE9F0F /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				EDDB11F72B6970C000FE9F0F /* ServerError.swift */,
 				EDDB11F92B69712200FE9F0F /* ErrorState.swift */,
 			);
 			path = Error;
@@ -511,7 +505,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5474A92B6305400077C9A3 /* ProfileLoadingState.swift in Sources */,
-				ED54749E2B629CCF0077C9A3 /* DomainModelConvertible.swift in Sources */,
 				ED5474A52B62CFE50077C9A3 /* PersonService.swift in Sources */,
 				ED5474722B6170B60077C9A3 /* HomeViewModel.swift in Sources */,
 				ED5474AB2B6305510077C9A3 /* HomeLoadingState.swift in Sources */,
@@ -519,12 +512,11 @@
 				ED54748D2B61CD3D0077C9A3 /* ProfileCoordinatorView.swift in Sources */,
 				ED5474AE2B6306810077C9A3 /* Images.swift in Sources */,
 				ED54748B2B61CBDC0077C9A3 /* HomeCoordinatorView.swift in Sources */,
-				ED5474A32B62CF920077C9A3 /* RuntimeError.swift in Sources */,
+				ED5474A32B62CF920077C9A3 /* ServerError.swift in Sources */,
 				ED5474C72B65049A0077C9A3 /* Header.swift in Sources */,
 				ED54743E2B615E870077C9A3 /* HomeView.swift in Sources */,
 				ED5474B62B630F1E0077C9A3 /* ShimmerView.swift in Sources */,
 				ED5474702B616DF30077C9A3 /* ProfileView.swift in Sources */,
-				EDDB11F82B6970C000FE9F0F /* ServerError.swift in Sources */,
 				ED5474B22B6307860077C9A3 /* Colors.swift in Sources */,
 				ED5474942B628FF10077C9A3 /* String.swift in Sources */,
 				ED5474A02B62CF5C0077C9A3 /* NetworkRequestExecutor.swift in Sources */,

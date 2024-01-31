@@ -42,7 +42,11 @@ class HomeViewModelImpl: HomeViewModel {
     private func handleError(_ error: Error) {
         let errorMessage: String
         if let serverError = error as? ServerError {
-            errorMessage = serverError.code != 200 ? serverError.message : "Something went wrong"
+            if serverError.status == "error", let serverMessage = serverError.error?.message {
+                errorMessage = serverMessage
+            } else {
+                errorMessage = "Unexpected error"
+            }
         } else {
             errorMessage = error.localizedDescription
         }

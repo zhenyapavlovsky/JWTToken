@@ -54,16 +54,23 @@ class NetworkRequestExecutor {
 extension NetworkRequestExecutor {
     
     func performRequest<T: Codable>(path: String, method: HTTPMethod) -> AnyPublisher<T, Error> {
-        guard let url = URL(string: baseUrl + path) else {
-            return Fail(error: RuntimeError("Wrong URL was provided"))
-                .eraseToAnyPublisher()
-        }
+            guard let url = URL(string: baseUrl + path) else {
+                return Fail(error: ServerError(status: "Invalid URL", error: nil))
+                    .eraseToAnyPublisher()
+            }
         
         return URLSession.shared.dataTaskPublisher(for: createRequest(for: url, method: method))
-            .map { $0.data }
-            .decode(type: T.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
+                   .tryMap { output in
+                       guard let httpResponse = output.response as? HTTPURLResponse,
+                             httpResponse.statusCode == 200 else {
+                           let serverError = try JSONDecoder().decode(ServerError.self, from: output.data)
+                           throw serverError
+                       }
+                       return output.data
+                   }
+                   .decode(type: T.self, decoder: JSONDecoder())
+                   .receive(on: DispatchQueue.main)
+                   .eraseToAnyPublisher()
+           }
 }
 
