@@ -41,6 +41,7 @@
 		ED5474C92B6504BB0077C9A3 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474C82B6504BB0077C9A3 /* Payload.swift */; };
 		ED5474CD2B66FFB70077C9A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474CC2B66FFB70077C9A3 /* Person.swift */; };
 		EDDB11FA2B69712200FE9F0F /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11F92B69712200FE9F0F /* ErrorState.swift */; };
+		EDDB11FC2B6ABDAD00FE9F0F /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11FB2B6ABDAD00FE9F0F /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		ED5474C82B6504BB0077C9A3 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		ED5474CC2B66FFB70077C9A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		EDDB11F92B69712200FE9F0F /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
+		EDDB11FB2B6ABDAD00FE9F0F /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				ED5474932B628FF00077C9A3 /* String.swift */,
 				ED5474B32B6309760077C9A3 /* Button.swift */,
 				ED5474C42B648BCD0077C9A3 /* Data.swift */,
+				EDDB11FB2B6ABDAD00FE9F0F /* LoadingState.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				ED54748D2B61CD3D0077C9A3 /* ProfileCoordinatorView.swift in Sources */,
 				ED5474AE2B6306810077C9A3 /* Images.swift in Sources */,
 				ED54748B2B61CBDC0077C9A3 /* HomeCoordinatorView.swift in Sources */,
+				EDDB11FC2B6ABDAD00FE9F0F /* LoadingState.swift in Sources */,
 				ED5474A32B62CF920077C9A3 /* ServerError.swift in Sources */,
 				ED5474C72B65049A0077C9A3 /* Header.swift in Sources */,
 				ED54743E2B615E870077C9A3 /* HomeView.swift in Sources */,

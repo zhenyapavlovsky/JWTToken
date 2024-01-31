@@ -13,20 +13,27 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.loadingState {
+            switch viewModel.loadingState {
+            case .loading:
                 ProfileLoadingState()
-            } else {
-                Form {
-                    topSection
-                    middleSection
-                    bottomSection
-                }
+            case .error(let error):
+                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription))
+            case .none:
+                profileContent
             }
         }
     }
 }
 
 private extension ProfileView {
+    
+    var profileContent: some View {
+        Form {
+            topSection
+            middleSection
+            bottomSection
+        }
+    }
     
     var topSection: some View {
         VStack(spacing: 20) {

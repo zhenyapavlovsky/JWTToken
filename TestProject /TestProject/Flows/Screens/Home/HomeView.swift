@@ -13,11 +13,12 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.loadingState {
+            switch viewModel.loadingState {
+            case .loading:
                 HomeLoadingState()
-            } else if let errorState = viewModel.errorState {
-                ErrorView(errorState: errorState)
-            } else {
+            case .error(let error):
+                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription))
+            case .none:
                 personsList
             }
         }

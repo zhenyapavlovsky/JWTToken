@@ -42,7 +42,7 @@ private extension ErrorView {
             errorImage
             textError
             Spacer()
-                .createRertryErrorButton(text: "Try again", action: errorState.retryAction)
+                .createRertryErrorButton(text: "Try again", action: {})
         }
     }
 }
@@ -51,9 +51,7 @@ struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
         ErrorView(
             errorState: ErrorState(
-                buttonMessage: "Try again",
-                errorMessage: "Something went wrong",
-                retryAction: {}
+                errorMessage: "Something went wrong"
             )
         )
     }

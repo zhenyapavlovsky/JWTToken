@@ -10,7 +10,7 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     
     @Published var output = String()
-    @Published var loadingState = false
+    @Published var loadingState: LoadingState = .none
     
     enum Result {
         case navigationBack

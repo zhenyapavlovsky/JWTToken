@@ -11,9 +11,7 @@ import Combine
 class HomeViewModel: ObservableObject {
     
     @Published var userDetails = [UserDetails]()
-    @Published var errorMessage: String?
-    @Published var loadingState = false
-    @Published var errorState: ErrorState?
+    @Published var loadingState: LoadingState = .none
     
     enum Result {
         case onProfileSelected(person: UserDetails)
@@ -39,34 +37,18 @@ class HomeViewModelImpl: HomeViewModel {
         getPersons()
     }
     
-    private func handleError(_ error: Error) {
-        let errorMessage: String
-        if let serverError = error as? ServerError {
-            errorMessage = serverError.status == "error" ? (serverError.error?.message ?? "Something went wrong") : "Unexpected error"
-        } else {
-            errorMessage = error.localizedDescription
-        }
-        self.errorState = ErrorState(
-            errorMessage: errorMessage,
-            retryAction: {
-                self.getPersons()
-            }
-        )
-    }
-    
     override func getPersons() {
-        self.loadingState = true
+        self.loadingState = .loading
         personService.getPersons()
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    self?.handleError(error)
-                    self?.loadingState = false
+                    self?.loadingState = .error(error: error)
                 case .finished:
-                    break
+                    self?.loadingState = .none
                 }
             }, receiveValue: { [weak self] userList in
-                self?.loadPersonDetails(ids: userList.data) // Використання масиву 'data' з 'UserList'
+                self?.loadPersonDetails(ids: userList.data)
             })
             .store(in: &cancellables)
     }
@@ -82,7 +64,7 @@ class HomeViewModelImpl: HomeViewModel {
             .receive(on: DispatchQueue.main)
         
         detailsPublisher.sink(receiveCompletion: { [weak self] _ in
-            self?.loadingState = false
+            self?.loadingState = .none
         }, receiveValue: { [weak self] userDetails in
             self?.userDetails = userDetails
         })
