@@ -28,7 +28,6 @@ private extension HomeLoadingState {
                 }
             }
         }
-        .navigationTitle("contact_list".localized)
     }
 }
 

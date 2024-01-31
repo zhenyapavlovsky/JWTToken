@@ -46,15 +46,12 @@ class HomeViewModelImpl: HomeViewModel {
         } else {
             errorMessage = error.localizedDescription
         }
-
-        DispatchQueue.main.async { [weak self] in
-            self?.errorState = ErrorState(
-                errorMessage: errorMessage,
-                retryAction: {
-                    self?.getPersons()
-                }
-            )
-        }
+        self.errorState = ErrorState(
+            errorMessage: errorMessage,
+            retryAction: {
+                self.getPersons()
+            }
+        )
     }
     
     override func getPersons() {
@@ -70,13 +67,11 @@ class HomeViewModelImpl: HomeViewModel {
                 }
             }, receiveValue: { [weak self] userList in
                 self?.loadPersonDetails(ids: userList.data) // Використання масиву 'data' з 'UserList'
-                self?.loadingState = false
             })
             .store(in: &cancellables)
     }
     
     private func loadPersonDetails(ids: [String]) {
-        self.loadingState = true
         let detailsPublisher = ids.publisher
             .flatMap { [unowned self] id in
                 self.personService.getPersonDetails(id: id)
