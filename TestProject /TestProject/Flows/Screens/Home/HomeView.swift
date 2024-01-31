@@ -12,6 +12,13 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
+        main
+    }
+}
+
+private extension HomeView {
+    
+    var main: some View {
         NavigationView {
             switch viewModel.loadingState {
             case .loading:
@@ -22,11 +29,7 @@ struct HomeView: View {
                 personsList
             }
         }
-        .navigationTitle("contact_list".localized)
     }
-}
-
-private extension HomeView {
     
     var personsList: some View {
         List(viewModel.userDetails, id: \.self) { per in
@@ -44,9 +47,16 @@ private extension HomeView {
             }
             .foregroundColor(Color.black)
         }
+        .navigationTitle("contact_list".localized)
     }
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModelImpl(personService: PersonServiceImpl(executor: NetworkRequestExecutor())))
+    HomeView(
+        viewModel: HomeViewModelImpl(
+            personService: PersonServiceImpl(
+                executor: NetworkRequestExecutor()
+            )
+        )
+    )
 }

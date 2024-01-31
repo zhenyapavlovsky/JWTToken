@@ -25,9 +25,11 @@ private extension HomeLoadingState {
                         .frame(width: 40, height: 40)
                         .padding(.trailing, 5)
                     ShimmerView()
+                        .padding(.all, 10)
                 }
             }
         }
+        .navigationTitle("contact_list".localized)
     }
 }
 

@@ -12,6 +12,13 @@ struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     
     var body: some View {
+        main
+    }
+}
+
+private extension ProfileView {
+    
+    var main: some View {
         NavigationView {
             switch viewModel.loadingState {
             case .loading:
@@ -23,9 +30,6 @@ struct ProfileView: View {
             }
         }
     }
-}
-
-private extension ProfileView {
     
     var profileContent: some View {
         Form {
