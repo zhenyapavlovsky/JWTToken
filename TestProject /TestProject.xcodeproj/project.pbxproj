@@ -42,6 +42,8 @@
 		ED5474CD2B66FFB70077C9A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5474CC2B66FFB70077C9A3 /* Person.swift */; };
 		EDDB11FA2B69712200FE9F0F /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11F92B69712200FE9F0F /* ErrorState.swift */; };
 		EDDB11FE2B6AE9B500FE9F0F /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB11FD2B6AE9B500FE9F0F /* LoadingState.swift */; };
+		EDDB12042B6AEDA700FE9F0F /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB12032B6AEDA700FE9F0F /* HomeCoordinatorTests.swift */; };
+		EDDB12062B6AEDBD00FE9F0F /* HomeCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDB12052B6AEDBD00FE9F0F /* HomeCoordinatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		ED5474CC2B66FFB70077C9A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		EDDB11F92B69712200FE9F0F /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		EDDB11FD2B6AE9B500FE9F0F /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		EDDB12032B6AEDA700FE9F0F /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
+		EDDB12052B6AEDBD00FE9F0F /* HomeCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 		ED54744B2B615E880077C9A3 /* TestProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				EDDB11FF2B6AED5900FE9F0F /* Flows */,
 				ED54744C2B615E880077C9A3 /* TestProjectTests.swift */,
 			);
 			path = TestProjectTests;
@@ -370,6 +375,63 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		EDDB11FF2B6AED5900FE9F0F /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB12002B6AED7100FE9F0F /* Coordinator */,
+				EDDB12012B6AED7A00FE9F0F /* Screens */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		EDDB12002B6AED7100FE9F0F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB12022B6AED8A00FE9F0F /* Home */,
+				EDDB12072B6AF3A900FE9F0F /* Profile */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EDDB12012B6AED7A00FE9F0F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB12082B6AF3B500FE9F0F /* Home */,
+				EDDB12092B6AF3BB00FE9F0F /* Profile */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		EDDB12022B6AED8A00FE9F0F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EDDB12032B6AEDA700FE9F0F /* HomeCoordinatorTests.swift */,
+				EDDB12052B6AEDBD00FE9F0F /* HomeCoordinatorView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EDDB12072B6AF3A900FE9F0F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		EDDB12082B6AF3B500FE9F0F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EDDB12092B6AF3BB00FE9F0F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,6 +605,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED54744D2B615E880077C9A3 /* TestProjectTests.swift in Sources */,
+				EDDB12062B6AEDBD00FE9F0F /* HomeCoordinatorView.swift in Sources */,
+				EDDB12042B6AEDA700FE9F0F /* HomeCoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
