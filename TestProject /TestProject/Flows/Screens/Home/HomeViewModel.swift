@@ -42,20 +42,19 @@ class HomeViewModelImpl: HomeViewModel {
     private func handleError(_ error: Error) {
         let errorMessage: String
         if let serverError = error as? ServerError {
-            if serverError.status == "error", let serverMessage = serverError.error?.message {
-                errorMessage = serverMessage
-            } else {
-                errorMessage = "Unexpected error"
-            }
+            errorMessage = serverError.status == "error" ? (serverError.error?.message ?? "Something went wrong") : "Unexpected error"
         } else {
             errorMessage = error.localizedDescription
         }
-        self.errorState = ErrorState(
-            errorMessage: errorMessage,
-            retryAction: {
-                self.getPersons()
-            }
-        )
+
+        DispatchQueue.main.async { [weak self] in
+            self?.errorState = ErrorState(
+                errorMessage: errorMessage,
+                retryAction: {
+                    self?.getPersons()
+                }
+            )
+        }
     }
     
     override func getPersons() {
