@@ -352,7 +352,6 @@
 		ED5474AC2B6305B30077C9A3 /* LoadingState */ = {
 			isa = PBXGroup;
 			children = (
-				ED5474AF2B63071B0077C9A3 /* ErrorView.swift */,
 				ED5474B52B630F1E0077C9A3 /* ShimmerView.swift */,
 			);
 			path = LoadingState;
@@ -370,6 +369,7 @@
 		EDDB11F62B6970AB00FE9F0F /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				ED5474AF2B63071B0077C9A3 /* ErrorView.swift */,
 				EDDB11F92B69712200FE9F0F /* ErrorState.swift */,
 			);
 			path = Error;

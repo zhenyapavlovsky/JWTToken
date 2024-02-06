@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: HomeViewModel
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         main
@@ -24,11 +25,13 @@ private extension HomeView {
             case .loading:
                 HomeLoadingState()
             case .error(let error):
-                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription))
+                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription),
+                          retryAction: { viewModel.getPersons() })
             case .none:
                 personsList
             }
         }
+        .background(colorScheme == .dark ? Color.black : Color.white)
     }
     
     var personsList: some View {
@@ -45,7 +48,7 @@ private extension HomeView {
                         .font(.system(size: 16, weight: .semibold))
                 }
             }
-            .foregroundColor(Color.black)
+            .foregroundColor(colorScheme == .dark ? .white : .black)
         }
         .navigationTitle("contact_list".localized)
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ErrorView: View {
     
     let errorState: ErrorState
+    let retryAction: () -> Void
     
     var body: some View {
         VStack {
@@ -41,8 +42,7 @@ private extension ErrorView {
         VStack(spacing: 40) {
             errorImage
             textError
-            Spacer()
-                .createRertryErrorButton(text: "Try again", action: {})
+            createRertryErrorButton(text: "Try again", action: retryAction)
         }
     }
 }
@@ -52,7 +52,9 @@ struct ErrorView_Previews: PreviewProvider {
         ErrorView(
             errorState: ErrorState(
                 errorMessage: "Something went wrong"
-            )
+            ), retryAction: {
+                print("Retry action performed")
+            }
         )
     }
 }

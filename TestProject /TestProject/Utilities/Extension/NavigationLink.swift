@@ -12,7 +12,7 @@ extension NavigationLink {
     
     init<Enum, Case, WrappedDestination> (
         unwrapping enum: Binding<Enum?>,
-        case casePath: CasePath<Enum, Case>,
+        case casePath: AnyCasePath<Enum, Case>,
         @ViewBuilder destination: @escaping (Binding<Case>) -> WrappedDestination
     ) where Destination == WrappedDestination?, Label == EmptyView {
         self.init(

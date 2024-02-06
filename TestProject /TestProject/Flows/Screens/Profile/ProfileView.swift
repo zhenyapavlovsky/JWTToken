@@ -24,7 +24,7 @@ private extension ProfileView {
             case .loading:
                 ProfileLoadingState()
             case .error(let error):
-                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription))
+                ErrorView(errorState: ErrorState(errorMessage: error.localizedDescription), retryAction: {})
             case .none:
                 profileContent
             }
